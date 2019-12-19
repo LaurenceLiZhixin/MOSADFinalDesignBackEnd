@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MOSAD 大作业后端
 
 ## 运行所需接口
@@ -13,7 +12,3 @@
 端口：6379
 
 [API文档](./MOSAD_FinalProject_API.md)
-=======
-# MOSADFinalDesignBackEnd
-MOSAD大作业后端
->>>>>>> 73cba762910ed423207b07a53bdc2ad38700001a
