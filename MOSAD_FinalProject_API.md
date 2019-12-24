@@ -218,7 +218,17 @@
 > {
 > 	"ispublic":"1",
 > 	"content":"我的消息"
->     "picture_name": "foi4g8ejwj43if.png"
+>  "picture_name": "foi4g8ejwj43if.png"
+> }
+> ```
+>
+> 如果发送多图推文：可使用字符例如';'隔开
+>
+> ```java
+> {
+> 	"ispublic":"1",
+> 	"content":"LiZhiXin is so handsome!!!^_^",
+>     "picture_name": "c4ac0cfb8819934b98a038c0c5d6832f.jpg;c4ac0cfb8819934b98a038c0c5d6832f.jpg;c4ac0cfb8819934b98a038c0c5d6832f.jpg;"
 > }
 > ```
 
@@ -278,25 +288,26 @@
 
 > ```java
 > {
->  "ok": true,
->  "data": [
->      {
->          "id": "bnj5bs4udja31317vj1g",
->          "create_time": "2019-12-03 20:46:47",
->          "content": "231553252353255",
->          "creator_name": "hss",
->          "picture_name":"f94j9f4e34fg.png",
->          "good_count": 0//点赞数
->      },
->      {
->          "id": "bnj5idsudja2uh3gt6d0",
->          "create_time": "2019-12-03 20:32:48",
->          "content": "2315rffr53252353255",
->          "creator_name": "hkk",
->          "picture_name":"f94j9f4e34fg.png",//获取到当前博客对应的图片名
->          "good_count": 1
->      },
->  ]
+> "ok": true,
+> "data": [
+>   {
+>       "id": "bnj5bs4udja31317vj1g",
+>       "create_time": "2019-12-03 20:46:47",
+>       "content": "231553252353255",
+>       "creator_name": "hss", 
+>       //对于多图博客则返回博客发布登记时传入的多张图片信息如下：
+>       "picture_name":"c4ac0cfb8819934b98a038c0c5d6832f.jpg;c4ac0cfb8819934b98a038c0c5d6832f.jpg;c4ac0cfb8819934b98a038c0c5d6832f.jpg;",,
+>       "good_count": 0//点赞数
+>   },
+>   {
+>       "id": "bnj5idsudja2uh3gt6d0",
+>       "create_time": "2019-12-03 20:32:48",
+>       "content": "2315rffr53252353255",
+>       "creator_name": "hkk",
+>       "picture_name":"f94j9f4e34fg.png",//获取到当前博客对应的图片名
+>       "good_count": 1
+>   },
+> ]
 > }
 > ```
 

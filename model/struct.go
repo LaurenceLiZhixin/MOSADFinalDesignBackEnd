@@ -9,13 +9,13 @@ type User struct {
 
 //Blog 保存发布内容信息
 type Blog struct {
-	ID           string `json:"id" gorm:"id;PRIMARY_KEY"`
-	CreatorEmail string `json:"creatoremail" gorm:"creator_email"`
-	CreateTime   string `json:"createtime" gorm:"create_time"`
-	IsPublic     string `json:"ispublic" gorm:"is_public"`
-	Content      string `json:"content" gorm:"content"`
+	ID           string   `json:"id" gorm:"id;PRIMARY_KEY"`
+	CreatorEmail string   `json:"creatoremail" gorm:"creator_email"`
+	CreateTime   string   `json:"createtime" gorm:"create_time"`
+	IsPublic     string   `json:"ispublic" gorm:"is_public"`
+	Content      string   `json:"content" gorm:"content"`
 	PictureName  string `json:"picturename" gorm:"picture_name"`
-	GoodCount    int    `json:"goodcount" gorm:"good_count"`
+	GoodCount    int      `json:"goodcount" gorm:"good_count"`
 }
 
 //Good 保存所有点赞信息

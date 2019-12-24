@@ -77,8 +77,8 @@ type UserLogInRequest struct {
 
 //CreateBlogRequest 用户创建博客请求
 type CreateBlogRequest struct {
-	IsPublic    string `json:"ispublic"`
-	Content     string `json:"content"`
+	IsPublic    string   `json:"ispublic"`
+	Content     string   `json:"content"`
 	PictureName string `json:"picture_name"`
 }
 
