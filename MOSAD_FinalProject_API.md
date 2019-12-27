@@ -324,7 +324,7 @@
 
 - **请求URL**
 
-> [/blogground/download](#)
+> [/blogground/download?picturename={picturename}](#)
 
 - **请求方式**
 
@@ -344,8 +344,7 @@
 
 > ```java
 > {
->     "picture_name":"j983jrjwdsaoijg.png"
-> }
+>    }
 > ```
 
 - **返回示例(成功)**

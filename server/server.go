@@ -77,8 +77,8 @@ type UserLogInRequest struct {
 
 //CreateBlogRequest 用户创建博客请求
 type CreateBlogRequest struct {
-	IsPublic    string   `json:"ispublic"`
-	Content     string   `json:"content"`
+	IsPublic    string `json:"ispublic"`
+	Content     string `json:"content"`
 	PictureName string `json:"picture_name"`
 }
 
@@ -579,19 +579,8 @@ func UploadPictureHandler(w http.ResponseWriter, r *http.Request) (bool, interfa
 
 //DownloadPictureHandler 处理下载图片请求
 func DownloadPictureHandler(w http.ResponseWriter, r *http.Request) {
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		w.WriteHeader(400)
-		log.Println(err)
-		return //false, "无法读取用户的请求"
-	}
-	downloadPictureRequest := DownloadPictureRequest{}
-	if err := json.Unmarshal(body, &downloadPictureRequest); err != nil {
-		log.Println(err)
-		w.WriteHeader(400)
-		return //false, "无效的json信息"
-	}
-	pictureName := downloadPictureRequest.PictureName
+	r.ParseForm()
+	pictureName := r.FormValue("picturename")
 	bodyBuf := &bytes.Buffer{}
 	bodyWriter := multipart.NewWriter(bodyBuf)
 	fileWriter, err := bodyWriter.CreateFormFile("picture", pictureName)
