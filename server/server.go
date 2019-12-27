@@ -10,7 +10,6 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
-	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -582,13 +581,13 @@ func DownloadPictureHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	pictureName := r.FormValue("picturename")
 	bodyBuf := &bytes.Buffer{}
-	bodyWriter := multipart.NewWriter(bodyBuf)
-	fileWriter, err := bodyWriter.CreateFormFile("picture", pictureName)
-	if err != nil {
-		w.WriteHeader(500)
-		log.Println("error in creating form file")
-		return
-	}
+	//bodyWriter := multipart.NewWriter(bodyBuf)
+	//fileWriter, err := bodyWriter.CreateFormFile("picture", pictureName)
+	// if err != nil {
+	// 	w.WriteHeader(500)
+	// 	log.Println("error in creating form file")
+	// 	return
+	// }
 
 	path := filepath.Join("./src", pictureName)
 	fileHandler, err := os.Open(path)
@@ -598,8 +597,7 @@ func DownloadPictureHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer fileHandler.Close()
-
-	if _, err = io.Copy(fileWriter, fileHandler); err != nil {
+	if _, err = io.Copy(bodyBuf, fileHandler); err != nil {
 		w.WriteHeader(500)
 		log.Println("error in copying file")
 		return
